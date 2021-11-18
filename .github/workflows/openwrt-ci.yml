@@ -87,9 +87,7 @@ name: Jarvis-OpenWrt-CI
               # 固件压缩, 编译ext4格式固件
                         # 注意如果选的插件数目多，CONFIG_TARGET_ROOTFS_PARTSIZE要设置大一些
               cat >> .config <<EOF
-              CONFIG_TARGET_ROOTFS_INITRAMFS=y
-              CONFIG_TARGET_INITRAMFS_COMPRESSION_LZMA=y
-              CONFIG_EXTERNAL_CPIO=""
+              CONFIG_TARGET_IMAGES_GZIP=y
               EOF
               # 编译UEFI固件:
               # cat >> .config <<EOF
@@ -121,9 +119,13 @@ name: Jarvis-OpenWrt-CI
               cat >> .config <<EOF
               # CONFIG_PACKAGE_luci-app-adbyby-plus=y
               #CONFIG_PACKAGE_luci-app-aria2=y
+              CONFIG_PACKAGE_ipq-wifi-mobipromo_cm520-79f=y
+              CONFIG_PACKAGE_ath10k-board-qca4019=y
+              CONFIG_PACKAGE_ath10k-firmware-qca4019-ct=y
+              CONFIG_PACKAGE_wireless-regdb=y
               CONFIG_PACKAGE_luci-app-baidupcs-web=y
               CONFIG_PACKAGE_luci-app-docker=y
-              #CONFIG_PACKAGE_luci-app-frpc=y
+              CONFIG_PACKAGE_luci-app-frpc=y
               CONFIG_PACKAGE_luci-app-kodexplorer=y
               CONFIG_PACKAGE_luci-app-minidlna=y
               CONFIG_PACKAGE_luci-app-mwan3=y
